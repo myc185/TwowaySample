@@ -29,15 +29,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun observe() {
 
-        //监听输入用户名时，是否会同步更新值至 ViewModel
-        mState.mUserNameMD.observe(this) {
-            Log.i(MainActivity::class.java.simpleName, "UserName: $it")
-        }
-
-        //监听输入密码时，是否会同步更新值至 ViewModel
-        mState.mUserPasswdMD.observe(this) {
-            Log.i(MainActivity::class.java.simpleName, "UserPasswd: $it")
-        }
+//        //监听输入用户名时，是否会同步更新值至 ViewModel
+//        mState.mUserNameMD.observe(this) {
+//            Log.i(MainActivity::class.java.simpleName, "UserName: $it")
+//        }
+//
+//        //监听输入密码时，是否会同步更新值至 ViewModel
+//        mState.mUserPasswdMD.observe(this) {
+//            Log.i(MainActivity::class.java.simpleName, "UserPasswd: $it")
+//        }
 
     }
 
