@@ -1,14 +1,11 @@
 package com.example.databinding
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProviders
-import com.example.databinding.databinding.ActivityMainBinding
-import androidx.lifecycle.ViewModel
-
 import androidx.lifecycle.ViewModelProvider
+import com.example.databinding.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,20 +21,21 @@ class MainActivity : AppCompatActivity() {
         )
         binding.vm = mState //设置ViewModeL
         binding.click = OnCLickProxy() //点击按钮监听
+        binding.lifecycleOwner = this //一定要加上这句话，否则UI不会刷新
         observe()
     }
 
     private fun observe() {
 
-//        //监听输入用户名时，是否会同步更新值至 ViewModel
-//        mState.mUserNameMD.observe(this) {
-//            Log.i(MainActivity::class.java.simpleName, "UserName: $it")
-//        }
-//
-//        //监听输入密码时，是否会同步更新值至 ViewModel
-//        mState.mUserPasswdMD.observe(this) {
-//            Log.i(MainActivity::class.java.simpleName, "UserPasswd: $it")
-//        }
+        //监听输入用户名时，是否会同步更新值至 ViewModel
+        mState.mUserNameMD.observe(this) {
+            Log.i(MainActivity::class.java.simpleName, "UserName: $it")
+        }
+
+        //监听输入密码时，是否会同步更新值至 ViewModel
+        mState.mUserPasswdMD.observe(this) {
+            Log.i(MainActivity::class.java.simpleName, "UserPasswd: $it")
+        }
 
     }
 
