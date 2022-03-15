@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.example.databinding.customview.MainView2Model" />
+
+        <variable
+            name="click"
+            type="com.example.databinding.customview.MainActivity2.OnCLickProxy" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="40dip"
+        tools:context=".MainActivity">
+
+        <com.example.databinding.customview.MyLoginView
+            android:id="@+id/loginView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:userName="@={vm.mUserNameMD}"
+            app:userPasswd="@={vm.mUserPasswdMD}" />
+
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="@{(view)->click.onSubmit(view)}"
+            android:text="提交"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
